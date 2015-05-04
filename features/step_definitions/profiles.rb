@@ -16,6 +16,10 @@ Given(/^there is a user named "([^"]*)" "([^"]*)"$/) do |first_name, last_name|
   create_user(first_name, last_name)
 end
 
+Given(/^there is a user named "([^"]*)" "([^"]*)" with email "([^"]*)"$/) do |first_name, last_name, email|
+  create_user(first_name, last_name, email)
+end
+
 When(/^I visit profile "([^"]*)" "([^"]*)"$/) do |first_name, last_name|
   user = User.where({first_name: first_name, last_name: last_name}).first
   visit "/profiles/#{user.id}"

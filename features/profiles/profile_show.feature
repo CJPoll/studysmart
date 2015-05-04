@@ -17,4 +17,4 @@ Feature: User views profile
     Given that I am not logged in
     And there is a user named "Ariana" "Rodriguez"
     When I visit profile "Ariana" "Rodriguez"
-    Then I should be on "/users/sign_in"
+    Then I should be instructed to sign in
