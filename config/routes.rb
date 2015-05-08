@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-
   devise_for :users
   root to: "static#landing"
-
+  get '/universities', to: 'universities#index'
   get '/profiles/:user_id', to: 'profiles#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
