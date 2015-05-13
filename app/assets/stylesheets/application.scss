@@ -30,10 +30,15 @@
 
 .university-name
 {
-  @extend.col-sm-1;
 }
 
 .no-dots
 {
   list-style-type: none;
+}
+
+.success
+{
+  @extend .alert;
+  @extend .alert-success;
 }

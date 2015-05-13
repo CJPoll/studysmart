@@ -54,7 +54,8 @@ When(/^I request a tutoring session from "(.*?)" "(.*?)"$/) do |arg1, arg2|
 end
 
 Then(/^there should be a success notification$/) do
-    pending # express the regexp above with the code you wish you had
+  success = find('.success')
+  expect(success).to_not be_nil
 end
 
 Given(/^"(.*?)" "(.*?)" tutors "(.*?)" at "(.*?)"$/) do |arg1, arg2, arg3, arg4|

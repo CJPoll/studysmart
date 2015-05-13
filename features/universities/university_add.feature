@@ -13,4 +13,4 @@ Feature: User associates with a university
     And a university called "BYU-Idaho" exists
     When I visit "/universities"
     And I associate myself with "BYU-Idaho"
-    Then I should see an index of courses at "BYU-Idaho"
+    Then there should be a success notification

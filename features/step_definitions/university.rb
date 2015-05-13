@@ -7,5 +7,5 @@ When(/^I associate myself with "(.*?)"$/) do |university_name|
   university = University.where({name: university_name}).first
   expect(university).to_not be_nil
 
-  click_on "#add_university_#{university.id}"
+  click_on "join-#{university.id}"
 end

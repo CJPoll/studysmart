@@ -3,15 +3,20 @@
 <ul id="universities" class="no-dots">
   <% @universities.each do |university| %>
     <li>
+      <% if current_user.attends? university %>
+        <%= link_to leave_university_path(university), method: :delete, class: "leave-university-button", id: "leave-#{university.id}" do %>
+          <span class="glyphicon glyphicon-minus"></span>
+        <% end %>
+      <% else %>
+        <%= link_to join_university_path(university), method: :post, class: "join-university-button", id: "join-#{university.id}" do%>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+      <% end %>
+
       <span class="university-name">
-      <%= link_to university.name, courses_path(university) %>
+        <%= link_to university.name, courses_path(university) %>
       </span>
 
-      <% if current_user.attends? university %>
-        <%= link_to "Leave", leave_university_path(university), method: :delete, class: "leave-university-button"%>
-      <% else %>
-        <%= link_to "Join", join_university_path(university), method: :post, class: "join-university-button" %>
-      <% end %>
     </li>
   <% end %> 
 </ul>

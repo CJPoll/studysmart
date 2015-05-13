@@ -13,7 +13,10 @@ class UniversitiesController < ApplicationController
 
     respond_to do |format|
       if university.save
-        format.html { redirect_to :universities }
+        format.html { 
+          flash[:success] = "Successfully joined #{university.name}!"
+          redirect_to :universities 
+        }
         format.json { render json: success }
       end
     end
@@ -24,7 +27,10 @@ class UniversitiesController < ApplicationController
     university.users.destroy current_user
 
     respond_to do |format|
-      format.html { redirect_to :universities }
+      format.html {
+          flash[:success] = "Successfully left #{university.name}!"
+          redirect_to :universities 
+      }
     end
   end
 end
