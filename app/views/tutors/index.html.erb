@@ -1,0 +1,9 @@
+<h1>Tutors for <%= @course.name %> at <%= @course.university.name %></h1>
+
+<ul>
+  <% @tutors.each do |tutor| %>
+    <li>
+      <%= tutor.first_name %> <%= tutor.last_name %>
+    </li>
+  <% end %>
+</ul>

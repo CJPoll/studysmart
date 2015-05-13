@@ -1,8 +1,24 @@
 Rails.application.routes.draw do
+  get 'tutors/index'
+
+  get 'courses/index'
+
+  get 'courses/show'
+
   devise_for :users
   root to: "static#landing"
-  get '/universities', to: 'universities#index'
+
   get '/profiles/:user_id', to: 'profiles#show'
+
+  get '/universities', to: 'universities#index'
+  get '/universities/:university_id/courses', to: 'courses#index', as: :courses
+
+  get '/courses/:course_id/tutors', to: 'tutors#index', as: :tutors
+  post '/courses/:course_id/tutors', to: 'tutors#create', as: :start_tutoring
+
+
+  post '/universities/:university_id/users', to: 'universities#add_user', as: :join_university
+  delete '/universities/:university_id/users', to: 'universities#remove_user', as: :leave_university
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

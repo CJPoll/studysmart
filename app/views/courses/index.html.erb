@@ -1,0 +1,15 @@
+<h1> Courses at <%= @university.name %> </h1>
+
+
+<ul id="courses">
+  <% @courses.each do |course| %>
+    <li>
+      <%= course.name %> 
+      <%= link_to "Find a tutor", tutors_path(course) %>
+      <% unless current_user.tutors? course %>
+        |
+        <%= link_to "Start tutoring", start_tutoring_path(course) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

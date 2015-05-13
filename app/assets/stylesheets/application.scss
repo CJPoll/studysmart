@@ -10,6 +10,30 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.leave-university-button
+{
+  @extend .btn-danger;
+  @extend .btn;
+}
+
+.join-university-button
+{
+  @extend .btn-primary;
+  @extend .btn;
+}
+
+.university-name
+{
+  @extend.col-sm-1;
+}
+
+.no-dots
+{
+  list-style-type: none;
+}

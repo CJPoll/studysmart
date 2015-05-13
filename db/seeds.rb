@@ -5,3 +5,33 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+cody = User.create!({
+  email: 'CJPoll@gmail.com',
+  password: 'password01',
+  password_confirmation: 'password01',
+  first_name: 'Cody',
+  last_name: 'Poll'
+})
+
+jimmy = User.create!({
+  email: 'jimmy@school.com',
+  password: 'password01',
+  password_confirmation: 'password01',
+  first_name: 'Jimmy',
+  last_name: 'Hoffa'
+})
+
+byu     = University.create({name: 'BYU'})
+byui    = University.create({name: 'BYU-Idaho'})
+harvard = University.create({name: 'Harvard'})
+
+cs        = Course.create({name: "Computer Science 101", university: byu})
+marketing = Course.create({name: "Marketing 101", university: byui})
+business  = Course.create({name: "Business 101", university: harvard})
+
+cody.universities << byui
+cody.tutors cs
+
+jimmy.tutors marketing
+jimmy.tutors business
