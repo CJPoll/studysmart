@@ -1,15 +1,31 @@
 <h1> Courses at <%= @university.name %> </h1>
 
 
-<ul id="courses">
+<ul id="courses" class="no-dots">
   <% @courses.each do |course| %>
     <li>
-      <%= course.name %> 
-      <%= link_to "Find a tutor", tutors_path(course) %>
-      <% unless current_user.tutors? course %>
-        |
-        <%= link_to "Start tutoring", start_tutoring_path(course) %>
+      <%= link_to tutors_path(course), class: "find-tutor-button" do %>
+          <span class="glyphicon glyphicon-user"></span>
+          <% count = course.tutors.count %>
+          <%= count %>
+          <% if count == 1 %>
+            Tutor
+          <% else %>
+            Tutors
+          <% end %>
+        <% end %>
+      <% if current_user.tutors? course %>
+        <%= link_to tutors_path(course), class: "stop-tutoring", method: :delete do %>
+          <span class="glyphicon glyphicon-minus"></span>
+          Stop Tutoring
+        <% end %>
+      <% else %>
+        <%= link_to tutors_path(course), class: "start-tutoring", method: :post do %>
+          <span class="glyphicon glyphicon-star"></span>
+          Start Tutoring
+        <% end %>
       <% end %>
+      <%= course.name %> 
     </li>
   <% end %>
 </ul>

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get '/universities/:university_id/courses', to: 'courses#index', as: :courses
 
   get '/courses/:course_id/tutors', to: 'tutors#index', as: :tutors
-  post '/courses/:course_id/tutors', to: 'tutors#create', as: :start_tutoring
+  post '/courses/:course_id/tutors', to: 'tutors#create'
+  delete '/courses/:course_id/tutors/', to: 'tutors#destroy'
 
 
   post '/universities/:university_id/users', to: 'universities#add_user', as: :join_university

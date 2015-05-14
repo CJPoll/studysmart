@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     self.universities.include? university
   end
 
+  def stop_tutoring course
+    self.tutored_courses.destroy course
+  end
+
   def tutors course
     self.tutored_courses << course
   end

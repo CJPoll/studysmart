@@ -42,3 +42,21 @@
   @extend .alert;
   @extend .alert-success;
 }
+
+.find-tutor-button
+{
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.start-tutoring
+{
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.stop-tutoring
+{
+  @extend .btn;
+  @extend .btn-danger;
+}

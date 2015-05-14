@@ -6,7 +6,24 @@ class TutorsController < ApplicationController
   end
 
   def create
-    @course.tutors << current_user
+    current_user.tutors @course
+    respond_to do |format|
+      format.html {
+        flash[:success] = "Tutoring #{@course.name}"
+        redirect_to courses_path(@course.university)
+      }
+    end
+  end
+
+  def destroy
+    current_user.stop_tutoring @course
+
+    respond_to do |format|
+      format.html {
+        flash[:success] = "You're not tutoring #{@course.name} now"
+        redirect_to courses_path(@course)
+      }
+    end
   end
 
   private

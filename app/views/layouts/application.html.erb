@@ -8,13 +8,15 @@
   </head>
   <body>
 
-    <% if flash[:success] %>
-      <div class="success" role="alert">
-        <%= flash[:success] %>
-      </div>
-    <% end %>
+    <div class="container-fluid">
+      <% if flash[:success] %>
+        <div class="success" role="alert">
+          <%= flash[:success] %>
+        </div>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
 
   </body>
 </html>
