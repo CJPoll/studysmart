@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = current_user.messages
+    @messages = current_user.messages.sort_by(&:created_at).reverse
   end
 
   private
