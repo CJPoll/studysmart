@@ -8,7 +8,21 @@
   </head>
   <body>
 
+
     <div class="container-fluid">
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <%= link_to "Messages", my_messages_path %>
+        </li>
+        <li role="presentation">
+          <%= link_to "Universities", universities_path %>
+        </li>
+        <% if user_signed_in? %>
+          <li role="presentation">
+            <%= link_to "Profile", root_path %>
+          </li>
+        <% end %>
+      </ul>
       <% if flash[:success] %>
         <div class="success" role="alert">
           <%= flash[:success] %>
