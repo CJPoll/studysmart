@@ -73,6 +73,11 @@
   @include button-primary;
 }
 
+.message-reply-button
+{
+  @extend .message-tutor-button;
+}
+
 .text-field
 {
   @extend .form-control;

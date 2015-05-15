@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= label_tag 'message[body]', 'Message:' %>
-    <%= text_area_tag 'message[body]', '', class: 'text-area', placeholder: "Tell #{@recipient.first_name} about yourself, and ask what hours are available..." %>
+    <%= text_area_tag 'message[body]', '', class: 'text-area', placeholder: "Your message goes here" %>
   </div>
 
   <%= form.submit "Submit", class: 'submit' %>
