@@ -16,6 +16,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$background-color: #52B3D9;
+$container-color: #ECECEC;
+
+
 @mixin button-primary
 {
   @extend .btn;
@@ -106,12 +110,12 @@
 
 html, body
 {
-  background-color: #52B3D9;
+  background-color: $background-color;
   height: 100%;
 }
 
 .container
 {
-  background-color: #ECECEC;
+  background-color: $container-color;
   height: 100%;
 }
