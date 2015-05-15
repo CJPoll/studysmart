@@ -16,16 +16,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin button-primary
+{
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+@mixin button-danger
+{
+  @extend .btn;
+  @extend .btn-danger;
+}
+
 .leave-university-button
 {
-  @extend .btn-danger;
-  @extend .btn;
+  @include button-danger;
 }
 
 .join-university-button
 {
-  @extend .btn-primary;
-  @extend .btn;
+  @include button-primary;
 }
 
 .university-name
@@ -45,18 +55,35 @@
 
 .find-tutor-button
 {
-  @extend .btn;
-  @extend .btn-primary;
+  @include button-primary;
 }
 
 .start-tutoring
 {
-  @extend .btn;
-  @extend .btn-primary;
+  @include button-primary;
 }
 
 .stop-tutoring
 {
-  @extend .btn;
-  @extend .btn-danger;
+  @include button-danger;
+}
+
+.message-tutor-button
+{
+  @include button-primary;
+}
+
+.text-field
+{
+  @extend .form-control;
+}
+
+.text-area
+{
+  @extend .form-control;
+}
+
+.submit
+{
+  @include button-primary;
 }

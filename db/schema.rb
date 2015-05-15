@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513050904) do
+ActiveRecord::Schema.define(version: 20150515020206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 20150513050904) do
   end
 
   add_index "courses", ["university_id"], name: "index_courses_on_university_id", using: :btree
+
+  create_table "message_recipients", force: :cascade do |t|
+    t.integer "message_id"
+    t.integer "user_id"
+  end
+
+  add_index "message_recipients", ["message_id"], name: "index_message_recipients_on_message_id", using: :btree
+  add_index "message_recipients", ["user_id"], name: "index_message_recipients_on_user_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "sender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "offers", force: :cascade do |t|
     t.integer  "user_id"
@@ -70,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150513050904) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "courses", "universities"
+  add_foreign_key "message_recipients", "messages"
+  add_foreign_key "message_recipients", "users"
   add_foreign_key "offers", "courses"
   add_foreign_key "offers", "users"
 end

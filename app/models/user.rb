@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates :last_name,  presence: true
 
   has_and_belongs_to_many :universities
+  has_many :messages, through: :message_recipients
+  has_many :message_recipients
+
+  has_many :sent_messages, class_name: 'Message'
 
   has_many :tutored_courses, class_name: 'Course', through: :offers, foreign_key: 'course_id'
   has_many :offers

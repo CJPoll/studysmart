@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'tutors/index'
-
-  get 'courses/index'
-
-  get 'courses/show'
-
   devise_for :users
   root to: "static#landing"
 
@@ -17,9 +11,11 @@ Rails.application.routes.draw do
   post '/courses/:course_id/tutors', to: 'tutors#create'
   delete '/courses/:course_id/tutors/', to: 'tutors#destroy'
 
-
   post '/universities/:university_id/users', to: 'universities#add_user', as: :join_university
   delete '/universities/:university_id/users', to: 'universities#remove_user', as: :leave_university
+
+  get '/users/:user_id/messages/new', to: 'messages#new', as: :new_message
+  post '/users/:user_id/messages', to: 'messages#create', as: :messages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
