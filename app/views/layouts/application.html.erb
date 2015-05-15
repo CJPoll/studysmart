@@ -9,8 +9,13 @@
   <body>
 
 
-    <div class="container-fluid">
+    <div class="container">
       <ul class="nav nav-pills">
+        <li role="presentation">
+          <%= link_to root_path do %>
+            <span class="glyphicon glyphicon-home"></span>
+          <% end %>
+        </li>
         <li role="presentation">
           <%= link_to "Messages", my_messages_path %>
         </li>
@@ -31,6 +36,5 @@
 
       <%= yield %>
     </div>
-
   </body>
 </html>

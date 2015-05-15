@@ -40,6 +40,7 @@
 
 .university-name
 {
+  font-weight: bold;
 }
 
 .no-dots
@@ -101,4 +102,16 @@
 .university-courses
 {
   @include button-primary;
+}
+
+html, body
+{
+  background-color: #52B3D9;
+  height: 100%;
+}
+
+.container
+{
+  background-color: #ECECEC;
+  height: 100%;
 }

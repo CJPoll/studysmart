@@ -1,13 +1,13 @@
 <h1>Tutors for <%= @course.name %> at <%= @course.university.name %></h1>
 
-<ul class="no-dots">
-  <% @tutors.each do |tutor| %>
-    <li>
-      <%= link_to new_message_path(tutor), class: "message-tutor-button" do %>
-        <span class="glyphicon glyphicon-envelope"></span>
-        Message
-      <% end %>
-      <%= tutor.first_name %> <%= tutor.last_name %>
-    </li>
-  <% end %>
-</ul>
+<% @tutors.each do |tutor| %>
+  <h2>
+    <%= tutor.first_name %> <%= tutor.last_name %>
+  </h2>
+  <ul class="no-dots">
+    <%= link_to new_message_path(tutor), class: "message-tutor-button" do %>
+      <span class="glyphicon glyphicon-envelope"></span>
+      Message
+    <% end %>
+  </ul>
+<% end %>

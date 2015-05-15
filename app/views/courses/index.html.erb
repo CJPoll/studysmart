@@ -4,6 +4,9 @@
 <ul id="courses" class="no-dots">
   <% @courses.each do |course| %>
     <li>
+      <h2>
+        <%= course.name %> 
+      </h2>
       <%= link_to tutors_path(course), class: "find-tutor-button" do %>
           <span class="glyphicon glyphicon-user"></span>
           <% count = course.tutors.count %>
@@ -25,7 +28,6 @@
           Start Tutoring
         <% end %>
       <% end %>
-      <%= course.name %> 
     </li>
   <% end %>
 </ul>
