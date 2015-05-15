@@ -31,6 +31,7 @@ class MessagesController < ApplicationController
   end
 
   def index
+    @messages = current_user.messages
   end
 
   private

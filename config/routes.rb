@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/universities/:university_id/users', to: 'universities#add_user', as: :join_university
   delete '/universities/:university_id/users', to: 'universities#remove_user', as: :leave_university
 
+  get '/messages', to: 'messages#index', as: :my_messages
   get '/users/:user_id/messages/new', to: 'messages#new', as: :new_message
   post '/users/:user_id/messages', to: 'messages#create', as: :messages
 
