@@ -97,3 +97,8 @@
 {
   font-weight: bold;
 }
+
+.university-courses
+{
+  @include button-primary;
+}

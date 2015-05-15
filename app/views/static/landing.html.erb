@@ -1,1 +1,12 @@
-<h1>Welcome to Studyhub</h1>
+<h1> My universities </h1>
+
+<% @universities.each do |university| %>
+  <h2> 
+    <%= university.name %>
+  </h2>
+
+  <%= link_to courses_path(university), class: 'university-courses' do %>
+    <span class="glyphicon glyphicon-book"></span>
+    See Courses
+  <% end %>
+<% end %>
