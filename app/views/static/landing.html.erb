@@ -1,12 +1,41 @@
-<h1> My universities </h1>
+<h1> Dashboard </h1>
 
-<% @universities.each do |university| %>
-  <h2> 
-    <%= university.name %>
-  </h2>
-
-  <%= link_to courses_path(university), class: 'university-courses' do %>
-    <span class="glyphicon glyphicon-book"></span>
-    See Courses
+<h2> My messages </h2>
+<ul class="no-dots">
+  <% @messages.each do |message| %>
+    <li>
+      <div>
+        <%= link_to new_message_path(message.sender), class: "message-reply-button" do %>
+          <span class="glyphicon glyphicon-envelope"></span>
+          Reply
+        <% end %>
+        <span class="sender">
+          <%= "#{message.sender.first_name} #{message.sender.last_name}" %>
+        </span>
+        <br/>
+        <%= message.body %>
+        <br/>
+      </div>
+    </li>
+    <% unless message == @messages.last %>
+      <hr>
+    <% end %>
   <% end %>
-<% end %>
+</ul>
+
+<h2> My Universities </h2>
+
+<ul class="no-dots">
+  <% @universities.each do |university| %>
+    <li>
+      <h3> 
+        <%= university.name %>
+      </h3>
+
+      <%= link_to courses_path(university), class: 'university-courses' do %>
+        <span class="glyphicon glyphicon-book"></span>
+        See Courses
+      <% end %>
+    </li>
+  <% end %>
+</ul>
