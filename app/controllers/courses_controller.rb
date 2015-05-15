@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   def index
     @university = University.find(params[:university_id])
-    @courses = @university.courses
+    @courses = @university.courses.order(:name)
   end
 
   def show
