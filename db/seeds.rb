@@ -25,10 +25,17 @@ jimmy = User.create!({
 byu     = University.create({name: 'BYU'})
 byui    = University.create({name: 'BYU-Idaho'})
 harvard = University.create({name: 'Harvard'})
+psu = University.create({name: 'Plymouth State University'})
 
 cs        = Course.create({name: "Computer Science 101", university: byu})
 marketing = Course.create({name: "Marketing 101", university: byui})
 business  = Course.create({name: "Business 101", university: harvard})
+business  = Course.create({name: "Writing & the Creative Process", university: psu})
+business  = Course.create({name: "Business Operations", university: psu})
+business  = Course.create({name: "Managerial Accounting", university: psu})
+business  = Course.create({name: "College Algebra", university: psu})
+business  = Course.create({name: "Early Childhood Development", university: psu})
+business  = Course.create({name: "Introduction to Biology", university: psu})
 
 cody.universities << byui
 cody.tutors cs
